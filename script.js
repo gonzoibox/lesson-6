@@ -1,20 +1,40 @@
-const outer = document.querySelector('.outer');
-const el = document.querySelector('input[name=checkbox]');
+let parent = document.querySelector('.flex');
+for (var i = 0; i < parent.children.length; i++) {
+    console.log(parent.children[i]);
+  }
+  
+let leftDiv = document.querySelector('.left-block');
+let leftArrow = document.querySelector('.left-block img');
 
-outer.addEventListener('mouseover', (event) => {
-    if(el.checked) {
+let rightDiv = document.querySelector('.right-block');
+let rightArrow = document.querySelector('.right-block img');
+
+
+
+//console.log(arrow.src);
+
+leftDiv.addEventListener('click', (event) => {
+    let elPosition = 0;
+    if(!elPosition) {
         console.log('checked');
-        outer.classList.add('color');
-    } else {
+        //parent.appendChild(leftDiv);
+        parent.insertAdjacentElement('afterEnd', leftDiv);
+        leftArrow.src = "./img/left-arrow.svg";
+        elPosition = 1;
+    } else if (elPosition) {
         console.log('unchecked');
+        parent.insertAdjacentElement('beforeEnd', leftDiv);
+        leftArrow.src = "./img/left-arrow.svg";
+        elPosition = 1;
     }
 })
 
-outer.addEventListener('mouseout', (event) => {
-    if(el.checked) {
-        console.log('checked');
-        outer.classList.remove('color');
-    } else {
-        console.log('unchecked');
-    }
-})
+// rightDiv.addEventListener('click', (event) => {
+//     if(true) {
+//         console.log('checked');
+//         parent.appendChild(rightDiv);
+//         rightArrow.src = "./img/right-arrow.svg";
+//     } else {
+//         console.log('unchecked');
+//     }
+// })

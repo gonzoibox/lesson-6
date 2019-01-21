@@ -9,32 +9,28 @@ let leftArrow = document.querySelector('.left-block img');
 let rightDiv = document.querySelector('.right-block');
 let rightArrow = document.querySelector('.right-block img');
 
-
-
-//console.log(arrow.src);
-
+let leftPosition = true;
 leftDiv.addEventListener('click', (event) => {
-    let elPosition = 0;
-    if(!elPosition) {
-        console.log('checked');
-        //parent.appendChild(leftDiv);
+    if(leftPosition) {
         parent.insertAdjacentElement('afterEnd', leftDiv);
         leftArrow.src = "./img/left-arrow.svg";
-        elPosition = 1;
-    } else if (elPosition) {
-        console.log('unchecked');
-        parent.insertAdjacentElement('beforeEnd', leftDiv);
-        leftArrow.src = "./img/left-arrow.svg";
-        elPosition = 1;
+        leftPosition = false;
+    } else if (!leftPosition) {
+        parent.insertAdjacentElement('beforebegin', leftDiv);
+        leftArrow.src = "./img/right-arrow.svg";
+        leftPosition = true;
+    }
+});
+
+let rightPosition = true;
+rightDiv.addEventListener('click', (event) => {
+    if(rightPosition) {
+        parent.insertAdjacentElement('beforebegin', rightDiv);
+        rightArrow.src = "./img/right-arrow.svg";
+        rightPosition = false;
+    } else if (!rightPosition) {
+        parent.insertAdjacentElement('afterEnd', rightDiv);
+        rightArrow.src = "./img/left-arrow.svg";
+        rightPosition = true;
     }
 })
-
-// rightDiv.addEventListener('click', (event) => {
-//     if(true) {
-//         console.log('checked');
-//         parent.appendChild(rightDiv);
-//         rightArrow.src = "./img/right-arrow.svg";
-//     } else {
-//         console.log('unchecked');
-//     }
-// })

@@ -1,8 +1,9 @@
-let parent = document.querySelector('.flex');
-for (var i = 0; i < parent.children.length; i++) {
-    console.log(parent.children[i]);
-  }
-  
+// let parent = document.querySelector('.flex');
+// for (var i = 0; i < parent.children.length; i++) {
+//     console.log(parent.children[i]);
+//   }
+let parent = document.querySelector('.center-area');
+
 let leftDiv = document.querySelector('.left-block');
 let leftArrow = document.querySelector('.left-block img');
 
